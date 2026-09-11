@@ -1,0 +1,11 @@
+Person 2 Results: Problems 2.7--2.8
+
+2.7 Prediction rule for 2023
+I would use the 2020 OLS prediction rule, saleamount_hat = -4.69 + 1.37 * assessedvalue_true. It is estimated from the most recent sample among the available choices and is therefore more likely than the 2008 OLS rule or the manual rule to reflect the relationship between assessed value and sale price near 2023. This choice assumes that the relationship remained reasonably stable from 2020 to 2023; a model fitted to reliable 2023 data would be preferable if such data were available.
+
+2.8 Annual OLS estimates
+Data source: ct_property_data.csv inside ps1_export.zip
+After filtering: 3819 single-family New Haven sales across 14 listing years (2007-2021).
+2008 check: intercept = -51.402538; slope = 1.009186; n = 279.
+2020 replication: intercept = 20.876983; slope = 1.215574; n = 381.
+The annual estimates vary meaningfully over time, indicating that the relationship between assessed value and sale price is not constant across listing years. See problem2_8_annual_ols_trends.png for the time-series figure and problem2_8_annual_ols.csv for the complete annual estimates.
