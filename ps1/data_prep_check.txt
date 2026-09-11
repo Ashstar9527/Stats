@@ -1,0 +1,41 @@
+Number of rows after filtering:
+[1] 279
+
+Preview of filtered data:
+       serialnumber listyear daterecorded      town           address
+519359        80285     2008   02/02/2009 New Haven   95 FOUNTAIN TER
+520013        80434     2008   01/26/2009 New Haven     405 POPLAR ST
+520192        80540     2008   04/13/2009 New Haven   380 WINTHROP AV
+520323        80698     2008   06/23/2009 New Haven      29 BENTON ST
+521201        80050     2008   10/21/2008 New Haven 657 WINCHESTER AV
+521495        80595     2008   05/26/2009 New Haven      249 JAMES ST
+       assessedvalue saleamount salesratio  propertytype residentialtype
+519359        162960        212  0.7686792 Single Family   Single Family
+520013        100380        130  0.7721538 Single Family   Single Family
+520192        136500        110  1.2409091 Single Family   Single Family
+520323        162190        247  0.6566397 Single Family   Single Family
+521201        138530        221  0.6268326 Single Family   Single Family
+521495        118790        126  0.9427778 Single Family   Single Family
+       nonuse.code                                           assessorremarks
+519359                                                                      
+520013                                                                      
+520192 10 - A Will                                                          
+520323                                                                      
+521201                                                                      
+521495  25 - Other AFFIDAVIT FILED BEFORE SALE, SPECIAL MORTGAGES BY GRANTEE
+       opmremarks location assessedvalue_true
+519359                                  232.8
+520013                                  143.4
+520192                                  195.0
+520323                                  231.7
+521201                                  197.9
+521495                                  169.7
+
+Summary statistics of key columns (in $1,000s):
+ assessedvalue_true   saleamount   
+ Min.   : 69.7      Min.   : 10.8  
+ 1st Qu.:141.2      1st Qu.: 62.0  
+ Median :175.5      Median :123.6  
+ Mean   :173.8      Mean   :124.0  
+ 3rd Qu.:207.6      3rd Qu.:175.0  
+ Max.   :248.6      Max.   :300.0  
