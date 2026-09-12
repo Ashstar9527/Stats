@@ -64,11 +64,10 @@
 
 \subsection{Sample Statistics (1.1)}
 
-For each of the four datasets (I, II, III, IV), the following sample
-statistics were computed: the mean of \texttt{x}, the mean of \texttt{y},
+For each of the four datasets (I, II, III, IV), we computed the following statistics: the mean of \texttt{x}, the mean of \texttt{y},
 the variance of \texttt{x}, the variance of \texttt{y}, the correlation
 between \texttt{x} and \texttt{y}, and the $R^2$ implied by these
-statistics alone (using the identity $R^2 = r_{xy}^2$ for simple linear
+statistics (using the identity $R^2 = r_{xy}^2$ for simple linear
 regression).
 
 \begin{table}[h]
@@ -92,8 +91,7 @@ IV  & 9 & 7.5009 & 11 & 4.1232 & 0.8165 & 0.6667 \\
 \subsection{OLS Estimates (1.2)}
 % ---------------------------------------------------------------------
 
-For each dataset, OLS estimates $\hat{\beta}_0$ and $\hat{\beta}_1$
-were obtained from a regression of \texttt{y} on \texttt{x} using
+For each dataset, we computedOLS estimates $\hat{\beta}_0$ and $\hat{\beta}_1$ from a regression of \texttt{y} on \texttt{x} using
 \texttt{lm()}.
 
 \begin{table}[h]
@@ -122,9 +120,9 @@ would you trade each of the four stocks?}
 
 \vspace{1em}
 
-\noindent\textbf{Your answer:}
+\noindent\textbf{Answer:}
 
-From the statistics, the linear relationship between $x$ and $y$ is approximately the same across all four stocks:
+From the statistics, we could observe a linear relationship between $x$ and $y$ approximately the same across all four stocks as
 
 \[
 \hat{y} = 0.5x + 3,
@@ -154,29 +152,27 @@ with the fitted OLS line overlaid.}
 trading strategy (relative to your answer in 1.3) that the scatterplot
 suggests is most important.}
 
-Although the four stocks have nearly identical summary statistics and OLS estimates, their scatterplots reveal very different patterns in the relationship between $x$ and $y$. Therefore, the common linear trading strategy proposed in 1.3 should be adjusted separately for each stock based on the structure revealed by the scatterplots.
+\noindent\textbf{Answer:}
+
+Although the four stocks have nearly identical summary statistics and OLS estimates, their scatterplots reveal very different patterns in the relationship between $x$ and $y$. Therefore, the linear trading strategy we proposed in 1.3 should be adjusted separately for each stock based on the structure revealed by the scatterplots.
 
 \vspace{1em}
 
 \noindent\textbf{Dataset I:}
 
-The data points are distributed roughly symmetrically around the fitted line, suggesting that the linear relationship provides a reasonable description of the data. Therefore, I would retain the original strategy from 1.3: go long when $x$ is high and short when
-
-$x$ is low.
+The data points are distributed roughly symmetrically around the fitted line. This suggests the linear relationship provides a reasonable description of the data. Therefore, I would retain the original strategy from 1.3: go long when $x$ is high and short when $x$ is low.
 
 \vspace{1em}
 
 \noindent\textbf{Dataset II:}
 
-The scatterplot shows a clear nonlinear, inverted-U-shaped relationship. $y$ initially increases with $x$, but after reaching a peak, the relationship becomes negative.
-
-Therefore, I would use different trading rules on the two sides of the turning point: go long as $x$ rises before the peak, but reverse the strategy after the peak and short as $x$ rises further.
+The scatterplot shows a clear nonlinear, inverted-U-shaped relationship of $y$ = a$x^2$+b. $y$ initially increases with $x$, but after reaching a peak, the relationship becomes negative. Therefore, I would use different trading rules on the two sides of the turning point: go long as $x$ rises before the peak, but reverse the strategy after the peak and short as $x$ rises further.
 
 \vspace{1em}
 
 \noindent\textbf{Dataset III:}
 
-The scatterplot shows that one unusual observation pulls the fitted line upward and makes the positive relationship between $x$ and $y$ appear stronger than it is for most of the data. Therefore, I would lower my expectation that higher $x$ reliably predicts higher returns. I would still go long when $x$ is high and short when $x$ is low, but with smaller positions and less confidence in the signal.
+The scatterplot shows that there is one unusual observation that pulls the entire fitted line upward, making the positive relationship between $x$ and $y$ appear stronger than it is for most of the data. Therefore, I would lower my expectation to the marginal returns. I would still go long when $x$ is high and short when $x$ is low, but with smaller positions and less confidence in the signal.
 
 \vspace{1em}
 
@@ -192,9 +188,9 @@ Therefore, I would not rely on the fitted linear rule. And I would avoid taking 
 
 \subsection{Data Preparation (2.1)}
 
-The following code loads the Connecticut property data, constructs the
-true assessed value, expresses both assessed value and sale amount in
-\$1,000s, and filters the sample to single-family homes in New Haven
+The following code loads the Connecticut property data, first constructs the
+true assessed value, then expresses both assessed value and sale amount in
+\$1,000s. Eventually we filters the sample to single-family homes in New Haven
 listed in 2008 with true assessed values below \$250,000.
 
 \vspace{0.5em}
