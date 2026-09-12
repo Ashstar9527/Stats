@@ -1,0 +1,13 @@
+Person 2 Results: Problems 2.2--2.6
+Data: ps1/ct_filtered.csv (279 complete observations)
+
+2.2 Manual rule: saleamount_hat = 0.8 * assessedvalue_true
+2.3 Manual-rule SSE = 863077.093994; RMSE = 55.618938
+2.4 mean(x) = 173.767993; mean(y) = 123.961767
+    cov(x,y) = 1657.481376; var(x) = 1642.393594
+    OLS intercept = -51.402538; OLS slope = 1.009186
+2.5 optim intercept = -51.402539; optim slope = 1.009186
+    optim SSE = 779881.121334; convergence code = 0
+    max |optim coefficient - OLS coefficient| = 4.005735832e-08
+
+2.6 See problem2_6_manual_vs_ols.png.
