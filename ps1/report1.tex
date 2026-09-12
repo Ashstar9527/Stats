@@ -1,14 +1,57 @@
 \documentclass[11pt]{article}
 
+% =====================================================================
+% Packages
+% =====================================================================
+
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath, amssymb}
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{hyperref}
 \usepackage{parskip}
+\usepackage{xcolor}
+\usepackage{listings}
+
+% =====================================================================
+% R Code Style
+% =====================================================================
+
+\definecolor{codebg}{RGB}{247,247,247}
+\definecolor{codecomment}{RGB}{80,130,90}
+\definecolor{codekeyword}{RGB}{40,80,150}
+\definecolor{codestring}{RGB}{160,70,70}
+
+\lstdefinestyle{rcode}{
+    language=R,
+    backgroundcolor=\color{codebg},
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{codekeyword},
+    commentstyle=\color{codecomment}\itshape,
+    stringstyle=\color{codestring},
+    frame=single,
+    rulecolor=\color{black!20},
+    breaklines=true,
+    showstringspaces=false,
+    columns=fullflexible,
+    xleftmargin=1.5em,
+    xrightmargin=1.5em,
+    framexleftmargin=0.8em,
+    framexrightmargin=0.8em,
+    framesep=0.6em
+}
+
+% =====================================================================
+% Title
+% =====================================================================
 
 \title{MGT 924: Statistical Foundations \\ Problem Set 1}
-\author{Group: Ashley Wen, Emily Wu, Skye Wang, Yiting Huang}
+
+\author{
+    [Your Name] \\
+    Group: [Ashley Wen, Emily Wu, Skye Wang, Yiting Huang]
+}
+
 \date{\today}
 
 \begin{document}
@@ -21,11 +64,17 @@
 
 \subsection{Sample Statistics (1.1)}
 
-For each of the four datasets (I, II, III, IV), the following sample statistics were computed: the mean of \texttt{x}, the mean of \texttt{y}, the variance of \texttt{x}, the variance of \texttt{y}, the correlation between \texttt{x} and \texttt{y}, and the $R^2$ implied by these statistics alone (using the identity $R^2 = r_{xy}^2$ for simple linear regression).
+For each of the four datasets (I, II, III, IV), the following sample
+statistics were computed: the mean of \texttt{x}, the mean of \texttt{y},
+the variance of \texttt{x}, the variance of \texttt{y}, the correlation
+between \texttt{x} and \texttt{y}, and the $R^2$ implied by these
+statistics alone (using the identity $R^2 = r_{xy}^2$ for simple linear
+regression).
 
 \begin{table}[h]
 \centering
 \caption{Sample statistics by dataset}
+
 \begin{tabular}{lcccccc}
 \toprule
 Dataset & Mean $x$ & Mean $y$ & Var $x$ & Var $y$ & Corr($x,y$) & $R^2$ \\
@@ -36,20 +85,24 @@ III & 9 & 7.5000 & 11 & 4.1226 & 0.8163 & 0.6663 \\
 IV  & 9 & 7.5009 & 11 & 4.1232 & 0.8165 & 0.6667 \\
 \bottomrule
 \end{tabular}
+
 \end{table}
 
 % ---------------------------------------------------------------------
-
 \subsection{OLS Estimates (1.2)}
+% ---------------------------------------------------------------------
 
-For each dataset, OLS estimates $\hat\beta_0$ and $\hat\beta_1$ were obtained from a regression of \texttt{y} on \texttt{x} using \texttt{lm()}.
+For each dataset, OLS estimates $\hat{\beta}_0$ and $\hat{\beta}_1$
+were obtained from a regression of \texttt{y} on \texttt{x} using
+\texttt{lm()}.
 
 \begin{table}[h]
 \centering
 \caption{OLS estimates by dataset}
+
 \begin{tabular}{lcc}
 \toprule
-Dataset & $\hat\beta_0$ (Intercept) & $\hat\beta_1$ (Slope) \\
+Dataset & $\hat{\beta}_0$ (Intercept) & $\hat{\beta}_1$ (Slope) \\
 \midrule
 I   & 3.0001 & 0.5001 \\
 II  & 3.0009 & 0.5000 \\
@@ -57,13 +110,15 @@ III & 3.0025 & 0.4997 \\
 IV  & 3.0017 & 0.4999 \\
 \bottomrule
 \end{tabular}
+
 \end{table}
 
 % ---------------------------------------------------------------------
-
 \subsection{Trading Rule from Statistics Alone (1.3)}
+% ---------------------------------------------------------------------
 
-\textit{Based solely on the statistics computed in 1.1 and 1.2, how would you trade each of the four stocks?}
+\textit{Based solely on the statistics computed in 1.1 and 1.2, how
+would you trade each of the four stocks?}
 
 \vspace{1em}
 
@@ -78,20 +133,26 @@ From the statistics, the linear relationship between $x$ and $y$ is approximatel
 with a positive correlation of approximately $0.816$ and an $R^2$ of approximately $0.666$. Therefore, I would enter long positions in all four stocks when $x$ is high and short positions when $x$ is low.
 
 % ---------------------------------------------------------------------
-
 \subsection{Scatterplots with OLS Prediction Rule (1.4)}
+% ---------------------------------------------------------------------
 
 \begin{figure}[h]
 \centering
+
 \includegraphics[width=0.85\textwidth]{scatterplots.png}
-\caption{Scatterplots of \texttt{y} vs.\ \texttt{x} for each dataset, with the fitted OLS line overlaid.}
+
+\caption{Scatterplots of \texttt{y} vs.\ \texttt{x} for each dataset,
+with the fitted OLS line overlaid.}
+
 \end{figure}
 
 % ---------------------------------------------------------------------
-
 \subsection{Improving the Trading Strategy (1.5)}
+% ---------------------------------------------------------------------
 
-\textit{For each stock, describe the \underline{one} improvement to your trading strategy (relative to your answer in 1.3) that the scatterplot suggests is most important.}
+\textit{For each stock, describe the \underline{one} improvement to your
+trading strategy (relative to your answer in 1.3) that the scatterplot
+suggests is most important.}
 
 Although the four stocks have nearly identical summary statistics and OLS estimates, their scatterplots reveal very different patterns in the relationship between $x$ and $y$. Therefore, the common linear trading strategy proposed in 1.3 should be adjusted separately for each stock based on the structure revealed by the scatterplots.
 
@@ -131,9 +192,14 @@ Therefore, I would not rely on the fitted linear rule. And I would avoid taking 
 
 \subsection{Data Preparation (2.1)}
 
-The following code loads the Connecticut property data, constructs the true assessed value, expresses both assessed value and sale amount in \$1,000s, and filters the sample to single-family homes in New Haven listed in 2008 with true assessed values below \$250,000.
+The following code loads the Connecticut property data, constructs the
+true assessed value, expresses both assessed value and sale amount in
+\$1,000s, and filters the sample to single-family homes in New Haven
+listed in 2008 with true assessed values below \$250,000.
 
-\begin{verbatim}
+\vspace{0.5em}
+
+\begin{lstlisting}[style=rcode]
 # ---- 2.1.1: Load the data ----
 ct <- read.csv("ps1/ct_property_data.csv")
 
@@ -153,12 +219,15 @@ ct_filtered <- ct[
         ct$listyear == 2008 &
         ct$assessedvalue_true < 250,
 ]
-\end{verbatim}
+\end{lstlisting}
+
+\vspace{0.5em}
 
 The resulting sample contains \textbf{279 observations}.
 
-% NOTE: Sections 2.2--2.7 are being completed by groupmates and are
-% intentionally left out of this file. Merge their content before
-% final submission.
+% =====================================================================
+% Sections 2.2--2.7 are being completed by groupmates.
+% Merge their content before final submission.
+% =====================================================================
 
 \end{document}
